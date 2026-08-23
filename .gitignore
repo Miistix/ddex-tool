@@ -1,0 +1,23 @@
+# Python virtual environment
+.venv/
+
+# Environment variables
+.env
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Runtime logs
+logs/
+
+# Processed DDEX deliveries
+processed/
+
+# Local incoming/profile data
+profile/
+
+# Local test/source deliveries (real release audio, artwork, metadata)
+deliveries/
+
+schema/*.xsd
