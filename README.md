@@ -23,7 +23,7 @@ DDEX ERN is the industry-standard schema for music release notifications, but a 
 
 - Two-way SFTP support: deliver *and* ingest
 - Live progress bars for uploads and downloads (`tqdm`)
-- Structural + schema validation before anything is filed away
+- Structural + schema validation before anything is filed away (optional)
 - Handles multi-release batches (multiple UPCs per delivery) independently
 - Human-readable logs (`logs/ddex_log.txt`) and structured CSV output (`logs/releases.csv`)
 - No destructive overwrites — collisions and failures are logged, not silently deleted
