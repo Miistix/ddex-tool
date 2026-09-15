@@ -79,7 +79,7 @@ schema/
                               # (not included — see note below)
 ```
 
-> **Note on the DDEX schema:** `release-notification.xsd` (and its dependency, `avs411.xsd`) are not included in this repo. DDEX retains copyright over the ERN standard and its schema files. If you want strict schema validation, download the files directly from DDEX and place them in `schema/`:
+> **Note on the DDEX schema:** `release-notification.xsd` (and its dependency, `avs411.xsd`) are not included in this repo. DDEX retains copyright over the ERN standard and its schema files. If you want strict schema validation, download (download by pressing Ctrl + S on the page and save the file as the name and ensure the file extension is .xsd) the files directly from DDEX and place them in `schema/`:
 >
 > - [release-notification.xsd](https://service.ddex.net/xml/ern/411/release-notification.xsd)
 > - [avs411.xsd](https://service.ddex.net/xml/avs/avs411.xsd)
