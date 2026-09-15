@@ -21,7 +21,7 @@ DDEX ERN is the industry-standard schema for music release notifications, but a 
 
 ## Features
 
-- Two-way SFTP support: deliver *and* ingest
+- Two-way SFTP support: deliver _and_ ingest
 - Live progress bars for uploads and downloads (`tqdm`)
 - Structural + schema validation before anything is filed away
 - Handles multi-release batches (multiple UPCs per delivery) independently
@@ -79,7 +79,12 @@ schema/
                               # (not included — see note below)
 ```
 
-> **Note on the DDEX schema:** `release-notification.xsd` (and its dependency, `avs411.xsd`) are not included in this repo. DDEX retains copyright over the ERN standard and its schema files, and requires a free Implementation Licence to use them — see [ddex.net/apply-ddex-implementation-licence](http://ddex.net/apply-ddex-implementation-licence). If you want strict schema validation, obtain the files yourself and place them in `schema/`. Without them, the script simply skips strict validation and logs a note saying so.
+> **Note on the DDEX schema:** `release-notification.xsd` (and its dependency, `avs411.xsd`) are not included in this repo. DDEX retains copyright over the ERN standard and its schema files. If you want strict schema validation, download the files directly from DDEX and place them in `schema/`:
+>
+> - [release-notification.xsd](https://service.ddex.net/xml/ern/411/release-notification.xsd)
+> - [avs411.xsd](https://service.ddex.net/xml/avs/avs411.xsd)
+>
+> Without them, the script simply skips strict validation and logs a note saying so.
 
 ## Status
 
