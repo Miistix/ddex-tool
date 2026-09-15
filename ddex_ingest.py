@@ -18,6 +18,7 @@ SCRIPT_VERSION = "1.0.0"
 # === CONFIG ===
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROFILE_DIR = os.path.join(BASE_DIR, 'profile') 
+DELIVERY_DIR = os.path.join(BASE_DIR, 'deliveries')
 PROCESSED_DIR = os.path.join(BASE_DIR, 'processed')
 LOG_DIR = os.path.join(BASE_DIR, 'logs')
 CSV_LOG = os.path.join(LOG_DIR, 'releases.csv')
@@ -42,7 +43,7 @@ def is_delivery_complete(delivery_path):
     a BatchComplete_*.xml marker, at least one UPC subfolder, and for every
     UPC subfolder both its metadata XML and a resources/ folder."""
     if not os.path.isdir(delivery_path):
-        return False
+        return False 
 
     complete_files = [f for f in os.listdir(delivery_path) if f.startswith('BatchComplete_')]
     if not complete_files:
@@ -132,8 +133,7 @@ def is_remote_dir(sftp, path):
 def get_remote_listing(sftp, remote_path):
     """List a remote directory once, returning (name, is_dir, size) tuples.
     listdir_attr() returns file metadata (type, size) bundled with the
-    directory listing in a single round trip, instead of a separate stat()
-    call per item — much faster on directories with many files."""
+    directory listing in a single round trip."""
     entries = []
     for attr in sftp.listdir_attr(remote_path):
         entries.append((attr.filename, stat.S_ISDIR(attr.st_mode), attr.st_size))
@@ -420,8 +420,8 @@ def prompt_delivery_config():
     password = getpass.getpass("SFTP password: ")
     remote_upload_dir = input("Remote upload directory (e.g. /uploads): ").strip()
     local_delivery_path = input(
-        f"Local folder to deliver (default: {PROFILE_DIR}): "
-    ).strip() or PROFILE_DIR
+        f"Local folder to deliver (default: {DELIVERY_DIR}): "
+    ).strip() or DELIVERY_DIR
 
     # Port is picked automatically rather than prompted for.
     port = DEFAULT_SFTP_PORT
